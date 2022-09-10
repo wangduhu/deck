@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  splash:
+    image: scrapinghub/splash
+    ports:
+      - 8050:8050
+    expose:
+      - 8050
+    restart: always
+    command: --max-timeout 360 --slots 10 --maxrss 1000 --verbosity 1 --disable-private-mode
+
+  # kodexplorer:
+  #   image: baiyuetribe/kodexplorer
+  #   volumes:
+  #     - /media/wally/Wally:/data
+  #   ports:
+  #     - 8087:80
+
+  # aria2:
+  #   image: p3terx/aria2-pro
+  #   volumes:
+  #     - ~/Wally/Journal/data/config/aria2:/config
+  #     - /media/wally/Wally/Download:/downloads
+  #   ports:
+  #     - 8088:6800
+  #     - 8089:6888
+  #     - 8089:6888/udp
+  #   environment:
+  #     - PUID=${UID:-1000}
+  #     - PGID=${GID:-1000}
+  #     - RPC_PORT=6800
+  #     - LISTEN_PORT-6888
+  #     - RPC_SECRET=asecret
+  #     - UMASK_SET=022
+
+  # ariang:
+  #   image: p3terx/ariang
+  #   ports:
+  #     - 8090:6880
