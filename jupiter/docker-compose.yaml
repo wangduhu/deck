@@ -8,7 +8,7 @@ services:
     expose:
       - 8050
     restart: always
-    command: --max-timeout 360 --slots 10 --maxrss 1000 --verbosity 1 --disable-private-mode
+    command: --max-timeout 3600 --slots 10 --maxrss 1000 --verbosity 1 --disable-private-mode
 
   # kodexplorer:
   #   image: baiyuetribe/kodexplorer
