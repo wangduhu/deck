@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   rsshub:
-    image: scavin/rsshub
+    image: diygod/rsshub
     ports:
       - 1200:1200
     restart: always
