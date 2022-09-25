@@ -10,6 +10,13 @@ services:
     restart: always
     command: --max-timeout 3600 --slots 10 --maxrss 1000 --verbosity 1 --disable-private-mode
 
+  melody:
+    image: foamzou/melody
+    ports:
+      - 5566:5566
+    volumes:
+      - ~/melody-profile:/app/backend/.profile
+
   # kodexplorer:
   #   image: baiyuetribe/kodexplorer
   #   volumes:
