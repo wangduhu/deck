@@ -38,3 +38,13 @@ init-bash:
 init-sh-common:
 	if [[ -a $(SH_CONF_DST_DIR) ]]; then $(TRASH) $(SH_CONF_DST_DIR); fi
 	ln -sf $(SH_CONF_SRC_DIR) $(SH_CONF_DST_DIR)
+
+
+.PHONY: svc svd
+
+svd:
+	mkdir -p /tmp/supervisor
+	supervisord -c $(PWD)/supervisor/supervisord.conf
+
+svc:
+	supervisorctl -c $(PWD)/supervisor/supervisord.conf
