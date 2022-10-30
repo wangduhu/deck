@@ -12,6 +12,9 @@ BASH_DST_CONF := $(HOME)/.bashrc
 SH_CONF_SRC_DIR := $(PWD)/shell/sh.d
 SH_CONF_DST_DIR := $(HOME)/.sh.d
 
+NGINX_SRC_CONF := $(PWD)/nginx/nginx.conf
+NGINX_DST_CONF := /usr/local/etc/nginx/nginx.conf
+
 TRASH := trash
 
 
@@ -48,3 +51,9 @@ svd:
 
 svc:
 	supervisorctl -c $(PWD)/supervisor/supervisord.conf
+
+
+.PHONY: init-nginx
+init-nginx:
+	if [[ -a $(NGINX_DST_CONF) ]]; then $(TRASH) $(NGINX_DST_CONF); fi
+	ln -sf $(NGINX_SRC_CONF) $(NGINX_DST_CONF)
